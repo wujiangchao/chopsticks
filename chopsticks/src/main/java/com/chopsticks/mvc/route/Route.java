@@ -11,7 +11,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
+/**
+ * request mapping
+ * @author jack
+ *
+ */
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
