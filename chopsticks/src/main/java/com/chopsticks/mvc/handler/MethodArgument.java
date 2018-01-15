@@ -18,6 +18,7 @@ import com.chopsticks.mvc.http.HttpSession;
 import com.chopsticks.mvc.http.Request;
 import com.chopsticks.mvc.http.Response;
 import com.chopsticks.mvc.http.Session;
+import com.chopsticks.mvc.multipart.FileItem;
 
 public class MethodArgument {
 	public static Object[] getArgs(Signature signature) throws Exception {
