@@ -13,12 +13,24 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Optional;
 
+import com.chopsticks.exception.ChopsticksException;
+import com.chopsticks.kit.AsmKit;
+import com.chopsticks.kit.JsonKit;
+import com.chopsticks.kit.ReflectKit;
+import com.chopsticks.kit.StringKit;
+import com.chopsticks.mvc.annotation.BodyParam;
+import com.chopsticks.mvc.annotation.CookieParam;
+import com.chopsticks.mvc.annotation.HeaderParam;
+import com.chopsticks.mvc.annotation.MultipartParam;
+import com.chopsticks.mvc.annotation.Param;
+import com.chopsticks.mvc.annotation.PathParam;
 import com.chopsticks.mvc.hook.Signature;
 import com.chopsticks.mvc.http.HttpSession;
 import com.chopsticks.mvc.http.Request;
 import com.chopsticks.mvc.http.Response;
 import com.chopsticks.mvc.http.Session;
 import com.chopsticks.mvc.multipart.FileItem;
+import com.chopsticks.mvc.ui.ModelAndView;
 
 public class MethodArgument {
 	public static Object[] getArgs(Signature signature) throws Exception {
@@ -152,21 +164,21 @@ public class MethodArgument {
 		return null;
 	}
 
-	private static Object getCookie(ParamStrut paramStrut) throws BladeException {
+	private static Object getCookie(ParamStrut paramStrut) throws ChopsticksException {
 		Class<?> argType = paramStrut.argType;
 		CookieParam cookieParam = paramStrut.cookieParam;
 		String paramName = paramStrut.paramName;
 		Request request = paramStrut.request;
 
 		String cookieName = StringKit.isBlank(cookieParam.value()) ? paramName : cookieParam.value();
-		Optional<String> val = request.cookie(cookieName);
-		if (!val.isPresent()) {
-			val = Optional.of(cookieParam.defaultValue());
+		String val = request.cookie(cookieName);
+		if (null == val) {
+			val = cookieParam.defaultValue();
 		}
-		return ReflectKit.convert(argType, val.get());
+		return ReflectKit.convert(argType, val);
 	}
 
-	private static Object getHeader(ParamStrut paramStrut) throws BladeException {
+	private static Object getHeader(ParamStrut paramStrut) throws ChopsticksException {
 		Class<?> argType = paramStrut.argType;
 		HeaderParam headerParam = paramStrut.headerParam;
 		String paramName = paramStrut.paramName;

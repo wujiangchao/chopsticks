@@ -2,6 +2,7 @@ package com.chopsticks.mvc.hook;
 
 import java.lang.reflect.Method;
 
+import com.chopsticks.mvc.handler.MethodArgument;
 import com.chopsticks.mvc.http.Request;
 import com.chopsticks.mvc.http.Response;
 import com.chopsticks.mvc.route.Route;
