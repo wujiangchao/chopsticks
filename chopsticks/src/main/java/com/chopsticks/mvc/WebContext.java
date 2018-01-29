@@ -96,6 +96,11 @@ public class WebContext {
         WebContext.chopsticks = chopsticks;
         WebContext.contextPath = contextPath;
     }
+    
+    public static SessionManager sessionManager(){
+        return null != chopsticks() ? chopsticks().sessionManager() : null;
+    }
+
 
     /**
      * Get chopsticks instance

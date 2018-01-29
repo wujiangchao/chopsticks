@@ -52,7 +52,7 @@ public interface Const {
 	// terminal
 	String TERMINAL_SERVER_ADDRESS = "--server.address=";
 	String TERMINAL_SERVER_PORT = "--server.port=";
-	String TERMINAL_BLADE_ENV = "--blade.env=";
+	String TERMINAL_CHOPSTICKS_ENV = "--chopsticks.env=";
 
 	String BANNER_SPACE = "\t\t\t\t\t\t\t  ";
 

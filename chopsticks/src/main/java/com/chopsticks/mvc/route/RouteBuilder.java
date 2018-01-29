@@ -1,10 +1,15 @@
 package com.chopsticks.mvc.route;
 
 import java.lang.reflect.Method;
-import java.nio.file.Path;
 
 import com.chopsticks.kit.ChopsticksKit;
 import com.chopsticks.kit.ReflectKit;
+import com.chopsticks.mvc.annotation.DeleteRoute;
+import com.chopsticks.mvc.annotation.GetRoute;
+import com.chopsticks.mvc.annotation.Path;
+import com.chopsticks.mvc.annotation.PostRoute;
+import com.chopsticks.mvc.annotation.PutRoute;
+import com.chopsticks.mvc.annotation.Route;
 import com.chopsticks.mvc.hook.Signature;
 import com.chopsticks.mvc.http.HttpMethod;
 
@@ -52,7 +57,7 @@ public class RouteBuilder {
      * @param routeType resolve the routing class,
      *                  e.g RouteHandler.class or some controller class
      */
-    public void addRouter(final Class<?> routeType, Object controller) {
+    public  void addRouter(final Class<?> routeType, Object controller) {
 
         Method[] methods = routeType.getDeclaredMethods();
         if (ChopsticksKit.isEmpty(methods)) {
@@ -72,7 +77,7 @@ public class RouteBuilder {
 
         for (Method method : methods) {
 
-            Route mapping     = method.getAnnotation(com.chopsticks.mvc.annotation.Route.class);
+            Route mapping     = method.getAnnotation(Route.class);
             GetRoute                       getRoute    = method.getAnnotation(GetRoute.class);
             PostRoute                      postRoute   = method.getAnnotation(PostRoute.class);
             PutRoute                       putRoute    = method.getAnnotation(PutRoute.class);

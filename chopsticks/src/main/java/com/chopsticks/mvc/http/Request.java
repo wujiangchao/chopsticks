@@ -9,7 +9,7 @@ import com.chopsticks.kit.WebKit;
 import com.chopsticks.mvc.WebContext;
 import com.chopsticks.mvc.multipart.FileItem;
 import com.chopsticks.mvc.route.Route;
-import com.chopsticks.netty.HttpConst;
+import com.chopsticks.server.netty.HttpConst;
 
 import io.netty.buffer.ByteBuf;
 import lombok.NonNull;

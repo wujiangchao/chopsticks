@@ -1,79 +1,87 @@
 package com.chopsticks.mvc.http;
 
+import lombok.Setter;
+
+import java.util.HashMap;
 import java.util.Map;
 
-public class HttpSession implements Session{
+/**
+ * HttpSession
+ *
+ * @author biezhi
+ * 2017/5/31
+ */
+public class HttpSession implements Session {
 
-	@Override
-	public String id() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private Map<String, Object> attributes = new HashMap<>();
+    @Setter
+    private String              id         = null;
+    @Setter
+    private String              ip         = null;
+    @Setter
+    private long                created    = -1;
+    @Setter
+    private long                expired    = -1;
 
-	@Override
-	public void id(String id) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public String id() {
+        return id;
+    }
 
-	@Override
-	public String ip() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public void id(String id) {
+        this.id = id;
+    }
 
-	@Override
-	public void ip(String ip) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public String ip() {
+        return this.ip;
+    }
 
-	@Override
-	public <T> T attribute(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public void ip(String ip) {
+        this.ip = ip;
+    }
 
-	@Override
-	public void attribute(String name, Object value) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public <T> T attribute(String name) {
+        Object object = this.attributes.get(name);
+        return null != object ? (T) object : null;
+    }
 
-	@Override
-	public Map<String, Object> attributes() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public void attribute(String name, Object value) {
+        this.attributes.put(name, value);
+    }
 
-	@Override
-	public void removeAttribute(String name) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public Map<String, Object> attributes() {
+        return attributes;
+    }
 
-	@Override
-	public long created() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public void removeAttribute(String name) {
+        this.attributes.remove(name);
+    }
 
-	@Override
-	public void created(long created) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public long created() {
+        return this.created;
+    }
 
-	@Override
-	public long expired() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public void created(long created) {
+        this.created = created;
+    }
 
-	@Override
-	public void expired(long expired) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public long expired() {
+        return this.expired;
+    }
+
+    @Override
+    public void expired(long expired) {
+        this.expired = expired;
+    }
 
 }

@@ -6,17 +6,22 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import org.omg.CORBA.Environment;
-
+import com.chopsticks.Environment;
+import com.chopsticks.ioc.Ioc;
+import com.chopsticks.ioc.annotation.Inject;
+import com.chopsticks.ioc.annotation.InjectWith;
+import com.chopsticks.ioc.annotation.Value;
+import com.chopsticks.ioc.bean.BeanDefine;
+import com.chopsticks.ioc.bean.ClassDefine;
+import com.chopsticks.ioc.bean.FieldInjector;
+import com.chopsticks.ioc.bean.ValueInjector;
 import com.chopsticks.mvc.http.HttpMethod;
 
 import lombok.NoArgsConstructor;
-import lombok.Value;
 
 /**
- * Blade kit
+ * ChopsticksKit kit
  *
- * @author biezhi
  * 2017/5/31
  */
 @NoArgsConstructor

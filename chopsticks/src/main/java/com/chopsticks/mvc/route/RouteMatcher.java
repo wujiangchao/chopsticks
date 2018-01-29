@@ -16,10 +16,12 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.junit.Assert;
-
+import com.chopsticks.ioc.annotation.Order;
+import com.chopsticks.kit.Assert;
+import com.chopsticks.kit.ChopsticksKit;
 import com.chopsticks.kit.PathKit;
 import com.chopsticks.kit.ReflectKit;
+import com.chopsticks.mvc.handler.RouteHandler;
 import com.chopsticks.mvc.hook.Signature;
 import com.chopsticks.mvc.hook.WebHook;
 import com.chopsticks.mvc.http.HttpMethod;
@@ -83,7 +85,7 @@ public class RouteMatcher {
         }
 
         Route route = new Route(httpMethod, path, controller, controllerType, method);
-        if (BladeKit.isWebHook(httpMethod)) {
+        if (ChopsticksKit.isWebHook(httpMethod)) {
             Order order = controllerType.getAnnotation(Order.class);
             if (null != order) {
                 route.setSort(order.value());
@@ -310,7 +312,7 @@ public class RouteMatcher {
                 .flatMap(Collection::stream).forEach(this::registerRoute);
 
         patternBuilders.keySet().stream()
-                .filter(BladeKit::notIsWebHook)
+                .filter(ChopsticksKit::notIsWebHook)
                 .forEach(httpMethod -> {
                     StringBuilder patternBuilder = patternBuilders.get(httpMethod);
                     if (patternBuilder.length() > 1) {
@@ -337,7 +339,7 @@ public class RouteMatcher {
             uriVariableNames.add(group.substring(1));   // {id} -> id
         }
         HttpMethod httpMethod = route.getHttpMethod();
-        if (find || BladeKit.isWebHook(httpMethod)) {
+        if (find || ChopsticksKit.isWebHook(httpMethod)) {
             if (regexRoutes.get(httpMethod) == null) {
                 regexRoutes.put(httpMethod, new HashMap<>());
                 patternBuilders.put(httpMethod, new StringBuilder("^"));

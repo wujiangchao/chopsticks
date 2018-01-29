@@ -2,6 +2,11 @@ package com.chopsticks.mvc.route;
 
 import java.lang.reflect.Method;
 
+import com.chopsticks.mvc.annotation.DeleteRoute;
+import com.chopsticks.mvc.annotation.GetRoute;
+import com.chopsticks.mvc.annotation.PostRoute;
+import com.chopsticks.mvc.annotation.PutRoute;
+import com.chopsticks.mvc.annotation.Route;
 import com.chopsticks.mvc.http.HttpMethod;
 
 import lombok.Builder;
