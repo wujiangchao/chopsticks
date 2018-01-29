@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+import com.chopsticks.ioc.ClassReader;
 import com.chopsticks.ioc.bean.ClassInfo;
 
 import lombok.EqualsAndHashCode;

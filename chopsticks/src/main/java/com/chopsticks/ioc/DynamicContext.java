@@ -5,8 +5,6 @@ import java.util.Enumeration;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import org.mockito.asm.ClassReader;
-
 import com.chopsticks.ioc.bean.ClassInfo;
 import com.chopsticks.ioc.bean.Scanner;
 import com.chopsticks.ioc.reader.ClassPathClassReader;

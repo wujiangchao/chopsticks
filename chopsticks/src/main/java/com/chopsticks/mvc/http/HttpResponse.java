@@ -45,7 +45,6 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * HttpResponse
  *
- * @author biezhi
  * 2017/5/31
  */
 @Slf4j

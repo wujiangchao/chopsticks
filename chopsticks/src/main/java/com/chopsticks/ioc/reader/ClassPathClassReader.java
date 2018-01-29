@@ -1,5 +1,7 @@
 package com.chopsticks.ioc.reader;
 
+import com.chopsticks.ioc.ClassReader;
+
 /**
  * Read classes by classpath
  *

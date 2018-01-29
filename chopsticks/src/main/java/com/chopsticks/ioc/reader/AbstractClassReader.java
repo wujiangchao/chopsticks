@@ -10,6 +10,7 @@ import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.chopsticks.ioc.ClassReader;
 import com.chopsticks.ioc.bean.ClassInfo;
 import com.chopsticks.ioc.bean.Scanner;
 import com.chopsticks.kit.ChopsticksKit;
