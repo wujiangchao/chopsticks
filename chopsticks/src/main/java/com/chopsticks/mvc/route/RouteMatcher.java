@@ -33,7 +33,6 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * Default Route Matcher
  *
- * @author <a href="mailto:biezhi.me@gmail.com" target="_blank">biezhi</a>
  * @since 1.7.1-release
  */
 @Slf4j
